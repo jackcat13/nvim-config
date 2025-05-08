@@ -1,55 +1,85 @@
 return {
-  {
-    "vague2k/vague.nvim",
-    config = function()
-      require("vague").setup({
-        -- optional configuration here
-        transparent = true,
-        style = {
-          -- "none" is the same thing as default. But "italic" and "bold" are also valid options
-          boolean = "none",
-          number = "none",
-          float = "none",
-          error = "none",
-          comments = "none",
-          conditionals = "none",
-          functions = "none",
-          headings = "bold",
-          operators = "none",
-          strings = "none",
-          variables = "none",
+  "vague2k/vague.nvim",
+  config = function()
+    -- NOTE: you do not need to call setup if you don't want to.
+    require("vague").setup({
+      transparent = false, -- don't set background
+      style = {
+        -- "none" is the same thing as default. But "italic" and "bold" are also valid options
+        boolean = "bold",
+        number = "none",
+        float = "none",
+        error = "bold",
+        comments = "italic",
+        conditionals = "none",
+        functions = "none",
+        headings = "bold",
+        operators = "none",
+        strings = "italic",
+        variables = "none",
 
-          -- keywords
-          keywords = "none",
-          keyword_return = "none",
-          keywords_loop = "none",
-          keywords_label = "none",
-          keywords_exception = "none",
+        -- keywords
+        keywords = "none",
+        keyword_return = "italic",
+        keywords_loop = "none",
+        keywords_label = "none",
+        keywords_exception = "none",
 
-          -- builtin
-          builtin_constants = "none",
-          builtin_functions = "none",
-          builtin_types = "none",
-          builtin_variables = "none",
+        -- builtin
+        builtin_constants = "bold",
+        builtin_functions = "none",
+        builtin_types = "bold",
+        builtin_variables = "none",
+      },
+      -- plugin styles where applicable
+      -- make an issue/pr if you'd like to see more styling options!
+      plugins = {
+        cmp = {
+          match = "bold",
+          match_fuzzy = "bold",
         },
-        colors = {
-          func = "#bc96b0",
-          keyword = "#787bab",
-          -- string = "#d4bd98",
-          string = "#8a739a",
-          -- string = "#f2e6ff",
-          -- number = "#f2e6ff",
-          -- string = "#d8d5b1",
-          number = "#8f729e",
-          -- type = "#dcaed7",
+        dashboard = {
+          footer = "italic",
         },
-      })
-    end,
-  },
-  {
-    "jnurmine/Zenburn",
-  },
-  {
-    "RRethy/base16-nvim",
-  },
+        lsp = {
+          diagnostic_error = "bold",
+          diagnostic_hint = "none",
+          diagnostic_info = "italic",
+          diagnostic_warn = "bold",
+        },
+        neotest = {
+          focused = "bold",
+          adapter_name = "bold",
+        },
+        telescope = {
+          match = "bold",
+        },
+      },
+      -- Override colors
+      colors = {
+        bg = "#141415",
+        fg = "#cdcdcd",
+        floatBorder = "#878787",
+        line = "#252530",
+        comment = "#606079",
+        builtin = "#b4d4cf",
+        func = "#c48282",
+        string = "#e8b589",
+        number = "#e0a363",
+        property = "#c3c3d5",
+        constant = "#aeaed1",
+        parameter = "#bb9dbd",
+        visual = "#333738",
+        error = "#df6882",
+        warning = "#f3be7c",
+        hint = "#7e98e8",
+        operator = "#90a0b5",
+        keyword = "#6e94b2",
+        type = "#9bb4bc",
+        search = "#405065",
+        plus = "#8cb66d",
+        delta = "#f3be7c",
+      },
+    })
+  end
 }

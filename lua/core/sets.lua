@@ -17,16 +17,15 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
+vim.g.neovide_cursor_vfx_mode = "wireframe"
 -- Helper function for transparency formatting
 local alpha = function()
   return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
 end
 -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
-vim.g.neovide_transparency = 0.0
-vim.g.transparency = 0.8
-vim.g.neovide_background_color = "#0f1117" .. alpha()
+--vim.g.neovide_transparency = 0.0
+--vim.g.transparency = 0.95
+--vim.g.neovide_background_color = "#0f1117" .. alpha()
